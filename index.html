@@ -103,7 +103,7 @@
                     <div class="step-card">
                         <div class="step-num">Step 1</div>
                         <h3>Send details</h3>
-                        <p>Fill in the form below with your address and surface — photos help but aren't required.</p>
+                        <p>Fill in the form below with your address and surface.</p>
                     </div>
                     <div class="step-card">
                         <div class="step-num">Step 2</div>
@@ -152,7 +152,7 @@
                     <p class="desc">Tell us about the job. Takes under a minute. We'll come back with a fixed price — no call-out fee, no obligation.</p>
                 </div>
                 
-                <form class="quote-form" id="contactForm" enctype="multipart/form-data">
+                <form class="quote-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -190,11 +190,7 @@
                         <label for="notes">Anything we should know?</label>
                         <textarea id="notes" name="notes" placeholder="Stains, moss, best time to visit..." rows="3"></textarea>
                     </div>
-                    <div class="form-group full-width">
-                        <label for="photos">Attach Photos (Optional)</label>
-                        <input type="file" id="photos" name="attachment" accept="image/*" multiple style="background: transparent; border: 1px dashed var(--clr-border); padding: 1rem; cursor: pointer; width: 100%; border-radius: 4px; font-family: inherit;">
-                        <small style="color: var(--clr-text-light); margin-top: 0.5rem; display: block;">Upload images of the surface to help us provide a more accurate quote.</small>
-                    </div>
+
                     <div class="form-submit full-width">
                         <button type="submit" class="btn btn-primary btn-block">Send quote request</button>
                     </div>

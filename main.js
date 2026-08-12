@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </svg>
                         <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Request Sent!</h3>
                         <p style="color: var(--clr-text-light);">Thanks for reaching out. We'll be in touch with your quote shortly.</p>
-                        <p style="color: var(--clr-accent); font-size: 0.875rem; margin-top: 1rem;"><strong>Note for Owner:</strong> Please check your email inbox to confirm the FormSubmit activation.</p>
+
                     </div>
                 `;
             })

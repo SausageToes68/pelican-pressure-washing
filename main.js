@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const formData = new FormData(contactForm);
             
-            fetch("https://formsubmit.co/ajax/seb.knotek@gmail.com", {
+            fetch("https://formsubmit.co/ajax/contact@pelicanpressurewashing.com.au", {
                 method: "POST",
                 headers: { 
                     'Accept': 'application/json'

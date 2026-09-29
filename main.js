@@ -110,45 +110,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form Submission Handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            const formData = new FormData(contactForm);
-            
-            fetch("https://formsubmit.co/ajax/contact@pelicanpressurewashing.com.au", {
-                method: "POST",
-                headers: { 
-                    'Accept': 'application/json'
-                },
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                contactForm.innerHTML = `
-                    <div class="success-message" style="text-align: center; padding: 2rem; grid-column: 1/-1;">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--clr-primary)" stroke-width="2" style="margin-bottom: 1rem;">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        <h3 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Request Sent!</h3>
-                        <p style="color: var(--clr-text-light);">Thanks for reaching out. We'll be in touch with your quote shortly.</p>
-                        <p style="color: var(--clr-accent); font-size: 0.875rem; margin-top: 1rem;"><strong>Note for Owner:</strong> Please check your email inbox to confirm the FormSubmit activation.</p>
-                    </div>
-                `;
-            })
-            .catch(error => {
-                console.error(error);
-                submitBtn.textContent = 'Error! Try Again';
-                submitBtn.disabled = false;
-            });
+    // Form Submission is handled natively by HTML action
+
+    // Auto-center the 3rd video (index 2) in the videos grid on load
+    const videosGrid = document.querySelector('.videos-grid');
+    if (videosGrid) {
+        const videos = videosGrid.querySelectorAll('.raw-video');
+        
+        // Force iOS to autoplay videos if it blocked them
+        videos.forEach(vid => {
+            vid.play().catch(e => console.log('Autoplay prevented:', e));
         });
+
+        if (videos.length >= 3) {
+            // Wait for layout to settle then scroll
+            setTimeout(() => {
+                const thirdVideo = videos[2];
+                const scrollPos = thirdVideo.offsetLeft - (videosGrid.clientWidth / 2) + (thirdVideo.clientWidth / 2);
+                // Set scrollLeft directly to avoid Safari fighting scroll-snap during a smooth scroll
+                videosGrid.scrollLeft = scrollPos;
+            }, 300);
+        }
     }
+
 });
